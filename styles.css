@@ -230,7 +230,7 @@ main {
 /* Layout de catálogo otimizado */
 .catalog {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Aumentado de 200px para 250px */
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); /* Aumentado de 200px para 250px */
     gap: 20px; /* Aumentado de 15px para 20px para dar mais espaço */
     margin: 20px 0;
     order: 2;
@@ -244,8 +244,8 @@ main {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     position: relative;
-    width: 100%;
-    height: 450px; /* Altura aumentada para mostrar mais do produto */
+    width: 280px;
+    height: 340px; /* Altura aumentada para mostrar mais do produto */
     display: flex;
     flex-direction: column;
 }
