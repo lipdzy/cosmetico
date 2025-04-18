@@ -230,7 +230,7 @@ main {
 /* Layout de catálogo otimizado */
 .catalog {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
     margin: 20px 0;
     order: 2;
@@ -303,7 +303,7 @@ main {
     border-radius: 3px;
 }
 
-/* Layout de produto otimizado */
+/* Layout de produto ajustado para fotos verticais com informações mais próximas */
 .product {
     background-color: var(--light-color);
     border-radius: 12px;
@@ -312,7 +312,7 @@ main {
     transition: all 0.3s ease;
     position: relative;
     width: 100%;
-    height: 320px; /* Altura fixa para uniformidade */
+    height: 350px; /* Altura ajustada */
     display: flex;
     flex-direction: column;
 }
@@ -324,8 +324,7 @@ main {
 
 .product-image-container {
     width: 100%;
-    /* Aumentando a proporção da imagem para 70% da altura do card */
-    height: 70%;
+    height: 70%; /* Altura aumentada para proporção vertical */
     overflow: hidden;
     cursor: pointer;
     position: relative;
@@ -342,41 +341,31 @@ main {
     transform: scale(1.05);
 }
 
+/* Ajuste do espaçamento entre a imagem e os detalhes */
 .product-details {
-    padding: 10px 12px;
+    padding: 8px 12px 10px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    justify-content: space-between;
-    height: 30%; /* Altura fixa para informações */
+    height: 20%;
 }
 
 .product-info {
-    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-.product-title {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 4px;
-    color: var(--accent-color);
-    /* Ensure long titles don't break layout */
-    white-space: nowrap;
+.product-title-price {
+    flex: 1;
     overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.product-price {
-    font-size: 16px;
-    font-weight: bold;
-    color: var(--text-color);
 }
 
 .product-actions {
     display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    margin-top: 4px;
+    gap: 6px;
+    margin-left: 5px;
+    flex-shrink: 0;
 }
 
 .favorite-btn, .cart-btn {
@@ -385,10 +374,10 @@ main {
     cursor: pointer;
     font-size: 16px;
     transition: all 0.3s ease;
-    padding: 6px;
+    padding: 4px;
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
+    width: 28px; /* Reduzido ligeiramente */
+    height: 28px; /* Reduzido ligeiramente */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -782,14 +771,35 @@ footer p {
         padding: 15px;
     }
     
-    /* Ajuste para o catálogo - responsivo */
     .catalog {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 20px 0;
+        order: 2;
     }
     
+    /* Ajuste para o produto ter largura completa ao invés de ficar em grid */
     .product {
-        height: 280px;
+        background-color: var(--light-color);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        position: relative;
+        width: 100%;
+        height: auto; /* Altura automática */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Opcional: Ajuste do layout de produto para ficar melhor em linha única */
+    .product-image-container {
+        width: 100%;
+        height: 250px; /* Altura fixa para imagens */
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
     }
     
     /* Ajustes para o carrinho */
@@ -855,36 +865,36 @@ footer p {
     }
     
     .product {
-        height: 260px;
+        height: 260px; /* Altura ajustada para telas menores */
     }
     
     .product-image-container {
-        height: 65%;
+        height: 75%; /* Mantendo a proporção vertical */
     }
     
     .product-details {
-        height: 35%;
-        padding: 8px 10px;
+        height: 25%;
+        padding: 6px 8px;
     }
     
     .product-title {
         font-size: 12px;
-        margin-bottom: 2px;
+        margin-bottom: 1px;
     }
     
     .product-price {
-        font-size: 14px;
+        font-size: 13px;
     }
     
     .product-actions {
-        gap: 5px;
+        gap: 4px;
     }
     
     .favorite-btn, .cart-btn {
-        width: 28px;
-        height: 28px;
-        font-size: 14px;
-        padding: 4px;
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+        padding: 2px;
     }
     
     .hours-list li {

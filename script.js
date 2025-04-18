@@ -48,36 +48,39 @@
         let cartItems = [];
         const favorites = new Set();
         
-        // Carregar produtos
         function loadProducts() {
-            catalogContainer.innerHTML = '';
-            products.forEach((product, index) => {
-                const productCard = document.createElement('div');
-                productCard.classList.add('product');
-                productCard.innerHTML = `
-                    <div class="product-image-container" data-index="${index}">
-                        <img src="${product.image}" alt="${product.name}">
-                    </div>
-                    <div class="product-details">
-                        <h3 class="product-title">${product.name}</h3>
-                        <p class="product-price">${product.price}</p>
-                        <div class="product-actions">
-                            <button class="favorite-btn" data-index="${index}">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="cart-btn" data-index="${index}">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
-                
-                catalogContainer.appendChild(productCard);
-            });
-            
-            // Adicionar eventos após criar os elementos
-            addEventListeners();
-        }
+    catalogContainer.innerHTML = '';
+    products.forEach((product, index) => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product');
+        productCard.innerHTML = `
+            <div class="product-image-container" data-index="${index}">
+                <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="product-details">
+                <div class="product-info">
+                    <div class="product-title-price">
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-price">${product.price}</p>
+                    </div>
+                    <div class="product-actions">
+                        <button class="favorite-btn" data-index="${index}">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="cart-btn" data-index="${index}">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        catalogContainer.appendChild(productCard);
+    });
+    
+    // Adicionar eventos após criar os elementos
+    addEventListeners();
+}
         
         // Adicionar eventos
         function addEventListeners() {
