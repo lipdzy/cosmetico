@@ -227,9 +227,10 @@ main {
     font-size: 20px;
 }
 
+/* Novo estilo para o catálogo */
 .catalog {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 25px;
     margin: 20px 0;
     order: 2;
@@ -302,6 +303,7 @@ main {
     border-radius: 3px;
 }
 
+/* Novos estilos melhorados para os produtos */
 .product {
     background-color: var(--light-color);
     border-radius: 15px;
@@ -310,6 +312,8 @@ main {
     transition: all 0.3s ease;
     position: relative;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .product:hover {
@@ -318,7 +322,8 @@ main {
 }
 
 .product-image-container {
-    height: 220px;
+    width: 100%;
+    height: 250px;
     overflow: hidden;
     cursor: pointer;
     position: relative;
@@ -336,37 +341,46 @@ main {
 }
 
 .product-details {
-    padding: 20px;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .product-title {
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
     color: var(--accent-color);
+    /* Ensure long titles don't break layout */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .product-price {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 15px;
+    color: var(--text-color);
 }
 
 .product-actions {
     display: flex;
     justify-content: space-between;
+    margin-top: auto;
 }
 
 .favorite-btn, .cart-btn {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 20px;
-    color: var(--text-color);
+    font-size: 18px;
     transition: all 0.3s ease;
     padding: 8px;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -374,6 +388,7 @@ main {
 
 .favorite-btn {
     background-color: #ffebee;
+    color: #888;
 }
 
 .favorite-btn:hover {
@@ -384,6 +399,7 @@ main {
 
 .cart-btn {
     background-color: #e8f5e9;
+    color: #333;
 }
 
 .cart-btn:hover {
@@ -758,15 +774,14 @@ footer p {
         padding: 15px;
     }
     
-    /* Ajuste para o catálogo - produtos um abaixo do outro */
+    /* Ajuste para o catálogo - responsivo */
     .catalog {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 15px;
     }
     
-    .product {
-        width: 100%;
+    .product-image-container {
+        height: 200px;
     }
     
     /* Ajustes para o carrinho */
@@ -826,8 +841,12 @@ footer p {
         font-size: 20px;
     }
     
+    .catalog {
+        grid-template-columns: 1fr;
+    }
+    
     .product-image-container {
-        height: 180px;
+        height: 220px;
     }
     
     .hours-list li {
